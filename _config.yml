@@ -86,7 +86,7 @@ archive_generator:
 deploy:
   type: git
   #repository: git@github.com:limuyan44/limuyan44.github.io.git
-  repository: git@github.com:limuyan44/limuyan44.git
+  repository: git@github.com:limuyan44/hexobackup.git
   branch: master	
   message: update
 jsonContent:
