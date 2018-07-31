@@ -228,10 +228,11 @@ post_meta:
 
 # Post wordcount display settings
 # Dependencies: https://github.com/willin/hexo-wordcount
+# 阅读时长和数字
 post_wordcount:
-  item_text: true
-  wordcount: true
-  min2read: true
+  item_text: false
+  wordcount: false
+  min2read: false
   totalcount: false
   separated_meta: true
 
