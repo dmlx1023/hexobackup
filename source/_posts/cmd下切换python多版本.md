@@ -8,7 +8,9 @@ tags:
 
 
 1. conda create -n python2 python=2 ipykernel  
-2. 激活安装的python2,切换的版本仅在当前版本有效
+2. 激活安装的python2,切换的版本仅在当前版本有效,windows下没有生效，后来用git bash 执行source activate python2生效了。
 > activate python2
 3. 关闭切换的版本
 > deactivate
+
+> 使用的时候使用 **python2 hello.py**
