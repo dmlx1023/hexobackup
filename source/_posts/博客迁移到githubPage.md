@@ -18,6 +18,17 @@ git commit -m "博客迁移"
 git push
 ```
 
+上面的流程是错误的，应该使用 hexo d，使用之前在 **_config.yml**里面将git地址配成github page地址
+
+```yaml
+deploy:
+  type: git
+  repository: git@github.com:limuyan44/limuyan44.github.io.git
+  #repository: git@github.com:limuyan44/hexobackup.git
+  branch: master	
+  message: update
+```
+
 
 
 之前的域名由于指向的服务器到期给关了，正好在阿里云的控制台将域名解析到github page的地址。
