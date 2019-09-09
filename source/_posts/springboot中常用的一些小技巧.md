@@ -22,12 +22,12 @@ tags: springboot
 
 2. 对controller的参数格式化@InitBinder
 
-``` java
-@InitBinder
-    public void globalInitBinder(WebDataBinder binder) {
-        binder.addCustomFormatter(new DateFormatter("yyyy-MM-dd"));
-    }
-```
+    ``` java
+    @InitBinder
+        public void globalInitBinder(WebDataBinder binder) {
+            binder.addCustomFormatter(new DateFormatter("yyyy-MM-dd"));
+        }
+    ```
 
 3.  @ModelAttribute 定义熟悉可以在后续的流程中使用相同注解来获取值
 
@@ -138,4 +138,3 @@ public class Config implements WebMvcConfigurer {
 ```
 
 注意，对于以往的springmvc配置我们通常都会通过继承**WebMvcConfigurerAdapter**来配置，因为jdk1.8出现了默认方法，导致spring将配置都移植到了**WebMvcConfigurer**接口当中使用默认方法来提供实现。
-
