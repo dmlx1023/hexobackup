@@ -7,7 +7,10 @@ categories:
   - 编程语言
 date: 2018-03-11 12:00:42
 tags:
+password: 133272
 ---
+
+
 
 > 注：仅为尝试所用，如需长期使用或有条件，请支持正版。
 
@@ -55,7 +58,7 @@ http://idea.lanyus.com/
     "hash":"2911276/0",  
     "gracePeriodDays":7,  
     "autoProlongated":false}
-    
+
 
 5.破解结束
 ------
