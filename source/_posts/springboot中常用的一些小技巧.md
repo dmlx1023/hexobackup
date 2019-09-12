@@ -48,11 +48,64 @@ tags: springboot
        }
    ```
 
+   ## ResponseBodyAdvice
+   
+   对于一些需要对返回结果进行处理的，我们除了通过使用传统的aop实现以外，spring为我们提供了专门的接口去解决这个问题，使用**@ControllerAdvice**配合**ResponseBodyAdvice**可以很方便的实现。
+   
+   
+   
+   ```java
+   @ControllerAdvice
+   @Slf4j
+   public class DemoResonseBodyAdvice implements ResponseBodyAdvice {
+       @Override
+       public boolean supports(MethodParameter returnType, Class converterType) {
+   
+           return true;
+       }
+   
+       @Override
+       public Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType, Class selectedConverterType, ServerHttpRequest request, ServerHttpResponse response) {
+           if (StringHttpMessageConverter.class.isAssignableFrom(selectedConverterType)|| body==null) {
+               return JSON.toJSONString(new Result<>().success(body));
+           } else {
+               return new Result<>().success(body);
+           }
+   
+       }
+   }
+   ```
+   
+   ​	注意点：
+   
+   对于beforeBodyWrite方法里面为什么会有这种判断，因为spring会根据controller的返回类型去选择StringHttpMessageConverter，通常我们会使用beforeBodyWrite来格式返回结果，但是返回的**Result**却显然不能cast为string,因此抛出转换错误。解决办法有几种方案，一种是自己去实现**StringHttpMessageConverter**，另一种则是对于返回值不是**String**的手动转换为**String**即可。
+   
+    ```java
+   @Data
+   public class Result<T> {
+   
+       private String code;
+       private T data;
+   
+       public Result(String s, T d) {
+           this.code = s;
+           this.data = d;
+       }
+       public Result success(T d) {
+           return new Result("200", d);
+       }
+   
+       public Result() {
+       }
+   
+   }
+    ```
+   
    
 
 ## HandlerMethodArgumentResolver
 
-对controller的参数进行处理，可以通过这种方法来为controller的参数自动注入值，例如常用的对controller自定注入当前用户方便业务处理。
+​	对controller的参数进行处理，可以通过这种方法来为controller的参数自动注入值，例如常用的对controller自定注入当前用户方便业务处理。
 
 先定义一个HandlerMethodArgumentResolver的实现
 
