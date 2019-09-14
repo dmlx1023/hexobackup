@@ -8,7 +8,7 @@ tags: springboot quartz
 
 ## 使用
 
-只需要在启动人加上**@EnableScheduling**就可以开启定时任务
+只需要在启动类加上**@EnableScheduling**就可以开启定时任务
 
 ## 配置
 
