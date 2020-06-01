@@ -19,6 +19,8 @@
     #}{{ totalcount(site, '0,0.0a') }}{#
   #}</span>
   {% endif %}
+  <a href="http://beian.miitbeian.gov.cn">苏ICP备19058407号</a> 
+  <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32010202010679"><img src="/images/beian.png" style="float:left;"><p style="float:left;margin: 0px 0px 0px 5px; color:#939393;">苏公网安备 32010202010679号</p></a>
 </div>
 
 {% if theme.footer.powered %}
